@@ -6,11 +6,14 @@ import {
     View,
     Text,
     StatusBar,
+    TextInput,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 import images from '../assets/images';
 import InfoCell from '../components/InfoCell';
+import DeviceModel from '../parsers/DeviceModel';
+import GsmParser from '../parsers/GsmParser';
 import fonts from '../res/fonts';
 
 export default class HomeScreen extends Component {
@@ -18,12 +21,16 @@ export default class HomeScreen extends Component {
         super(props);
         this.state = {
         };
+        this.dev = new DeviceModel()
+        console.log(this.dev.getDeviceInfo());
+        this.parse = new GsmParser()
     }
 
     render() {
         let data = ['Android 10', 'RAM 8 GB', 'FATA 10 MP \n Spate 12 + 64 + 12 MP', '4000 mAh', 'Octa-core \n Exynos 990', '6.2 \n QHD+(1420 x 3200)']
         let imgs = [images.androidIcon, images.ramIcon, images.cameraIcon, images.bateryIcon, images.procesorIcon, images.screenIcon]
         let devName = "Samsung \n Galaxy S 20"
+
         return (
             <LinearGradient colors={['#53C0FF', '#4390F1']} style={styles.linearGradient}>
 
@@ -39,6 +46,13 @@ export default class HomeScreen extends Component {
                             }}>
                                 {devName}
                             </Text>
+                            <TextInput
+                                style={{ width: 200, height: 30, backgroundColor: 'red' }}
+                                onChangeText={(e) => {
+                                    let v = this.parse.autocomplete(e)
+                                    console.log(v);
+                                }}
+                            />
                         </SafeAreaView>
                     </View>
 
