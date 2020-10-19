@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
+import { Platform } from 'react-native';
+import DeviceInfo from 'react-native-device-info';
+
 const cheerio = require('react-native-cheerio')
 
 export default class GsmParser extends Component {
@@ -11,9 +14,15 @@ export default class GsmParser extends Component {
     }
 
     async autocomplete(q) {
-        let res = await fetch(`http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=${q.replace(' ', '+')}`)
-        console.log(res.text());
-        return res.text()
+        var requestOptions = {
+            method: 'GET',
+            redirect: 'follow'
+        };
+
+        return fetch(`http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=${q}`, requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
     }
 
     async parse() {
@@ -21,7 +30,7 @@ export default class GsmParser extends Component {
         const response = await fetch(searchUrl);   // fetch page
         const htm = await response.text()
         const val = await this.parseHtml(htm)
-        console.log(this.allData);
+        // console.log(this.allData);
         return val
     }
 
@@ -32,27 +41,38 @@ export default class GsmParser extends Component {
         // #specs-list > table > tbody > tr > td
         const scrapedData = [];
         const tableHeaders = [];
-
+        let vals = []
+        let i = 0
         $("#specs-list > table > tbody > tr").each((index, element) => {
             const ths = $(element).find("th");
-            console.log('thsssss', ths.text());
+            console.log('th >>>', ths.text());
+
             if (ths.text() != '') {
-                tableHeaders.push(
-                    $(element)
-                        .text()
-                        .toLowerCase()
-                );
+                tableHeaders.push(ths.text())
+                // tableHeaders[tableHeaders.length - 1] = vals
+                // console.log(vals);
+                if (tableHeaders.length > 1) {
+                    scrapedData.push({ "name": tableHeaders[i], "vals": vals })
+                    i += 1
+                    vals = []
+                }
+            } else {
+                const tds = $(element).find("td");
+                $(tds).each((i, element) => {
+                    vals.push($(element).text())
+                });
             }
-            const tds = $(element).find("td");
-            const tableRow = {};
-            $(tds).each((i, element) => {
-                tableRow[tableHeaders[tableHeaders.length - 1]] = $(element).text();
-                console.log('td >>>', $(element).text());
-            });
-            scrapedData.push(tableRow);
         });
         this.allData = scrapedData
         return scrapedData
     }
 
+    async getDeviceInfo() {
+        let brand = DeviceInfo.getBrand()
+        let os = DeviceInfo.getSystemName()
+        let systemVersion = DeviceInfo.getSystemVersion()
+        let deviceId = await DeviceInfo.getDeviceName()
+
+        console.log(`${brand} ${os} ${systemVersion} ${deviceId}`);
+    }
 }
