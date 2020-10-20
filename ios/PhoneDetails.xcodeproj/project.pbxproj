@@ -25,6 +25,13 @@
 		B9EBBB56DE7D65144BDA70EC /* libPods-PhoneDetails.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A42ED40C9E947102C183E28 /* libPods-PhoneDetails.a */; };
 		C3CBE639198EA7B3DC78A875 /* libPods-PhoneDetails-PhoneDetailsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E8E6E24731DCE4F3CC18C7D /* libPods-PhoneDetails-PhoneDetailsTests.a */; };
 		E212663AA61841B789DA066B /* PlayfairDisplay-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43FE8C7151CD4DA2BDE3936B /* PlayfairDisplay-MediumItalic.ttf */; };
+		E15D7CA4AD8B4AE88BA5352C /* Mada-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E20A7FA456744CB9A584DB82 /* Mada-Black.ttf */; };
+		8C496993AA3343E5A908ECFF /* Mada-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86F3E804E28B4C0895C19B48 /* Mada-Bold.ttf */; };
+		68EEBF9C3B9D4B97BB92D05F /* Mada-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B4262C3728E64249943F43C3 /* Mada-ExtraLight.ttf */; };
+		755F950552F64DB1930352B5 /* Mada-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DC9CDFF618444BEA56B43E9 /* Mada-Light.ttf */; };
+		CF752AA297654DA6B3162199 /* Mada-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 992C600C00CF4171BB7F8F87 /* Mada-Medium.ttf */; };
+		7503CB225DCA483CB9468B0F /* Mada-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9616CEE1BD6147F9B241D95F /* Mada-Regular.ttf */; };
+		55AF9FB9690D4C169933EA5A /* Mada-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95A5CE2F5DB34D918317F1CA /* Mada-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +84,13 @@
 		E8C28F3A1981C3564775B785 /* Pods-PhoneDetails.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhoneDetails.debug.xcconfig"; path = "Target Support Files/Pods-PhoneDetails/Pods-PhoneDetails.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		E20A7FA456744CB9A584DB82 /* Mada-Black.ttf */ = {isa = PBXFileReference; name = "Mada-Black.ttf"; path = "../App/res/fonts/Mada-Black.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		86F3E804E28B4C0895C19B48 /* Mada-Bold.ttf */ = {isa = PBXFileReference; name = "Mada-Bold.ttf"; path = "../App/res/fonts/Mada-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B4262C3728E64249943F43C3 /* Mada-ExtraLight.ttf */ = {isa = PBXFileReference; name = "Mada-ExtraLight.ttf"; path = "../App/res/fonts/Mada-ExtraLight.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4DC9CDFF618444BEA56B43E9 /* Mada-Light.ttf */ = {isa = PBXFileReference; name = "Mada-Light.ttf"; path = "../App/res/fonts/Mada-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		992C600C00CF4171BB7F8F87 /* Mada-Medium.ttf */ = {isa = PBXFileReference; name = "Mada-Medium.ttf"; path = "../App/res/fonts/Mada-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9616CEE1BD6147F9B241D95F /* Mada-Regular.ttf */ = {isa = PBXFileReference; name = "Mada-Regular.ttf"; path = "../App/res/fonts/Mada-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		95A5CE2F5DB34D918317F1CA /* Mada-SemiBold.ttf */ = {isa = PBXFileReference; name = "Mada-SemiBold.ttf"; path = "../App/res/fonts/Mada-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +181,13 @@
 				6E3A25D92A1F46289262705B /* PlayfairDisplay-Regular.ttf */,
 				3715C7B5E2814627B1E4C751 /* PlayfairDisplay-SemiBold.ttf */,
 				07DD14AA7BC64CAA83CE0AE3 /* PlayfairDisplay-SemiBoldItalic.ttf */,
+				E20A7FA456744CB9A584DB82 /* Mada-Black.ttf */,
+				86F3E804E28B4C0895C19B48 /* Mada-Bold.ttf */,
+				B4262C3728E64249943F43C3 /* Mada-ExtraLight.ttf */,
+				4DC9CDFF618444BEA56B43E9 /* Mada-Light.ttf */,
+				992C600C00CF4171BB7F8F87 /* Mada-Medium.ttf */,
+				9616CEE1BD6147F9B241D95F /* Mada-Regular.ttf */,
+				95A5CE2F5DB34D918317F1CA /* Mada-SemiBold.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -370,6 +391,13 @@
 				67952AC7A5474B8E95C8AFE1 /* PlayfairDisplay-Regular.ttf in Resources */,
 				95A39B92215D4169800DA95E /* PlayfairDisplay-SemiBold.ttf in Resources */,
 				B87753501EEA4DA2BDA5C53F /* PlayfairDisplay-SemiBoldItalic.ttf in Resources */,
+				E15D7CA4AD8B4AE88BA5352C /* Mada-Black.ttf in Resources */,
+				8C496993AA3343E5A908ECFF /* Mada-Bold.ttf in Resources */,
+				68EEBF9C3B9D4B97BB92D05F /* Mada-ExtraLight.ttf in Resources */,
+				755F950552F64DB1930352B5 /* Mada-Light.ttf in Resources */,
+				CF752AA297654DA6B3162199 /* Mada-Medium.ttf in Resources */,
+				7503CB225DCA483CB9468B0F /* Mada-Regular.ttf in Resources */,
+				55AF9FB9690D4C169933EA5A /* Mada-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,10 +7,9 @@ const cheerio = require('react-native-cheerio')
 
 export default class GsmParser extends Component {
 
-    constructor() {
+    constructor(props) {
         super()
-        this.baseUrl = 'https://www.gsmarena.com/google_pixel_5-10386.php'
-        this.allData = []
+        this.baseUrl = props.url
     }
 
     async autocomplete(q) {
@@ -63,7 +62,6 @@ export default class GsmParser extends Component {
                 });
             }
         });
-        this.allData = scrapedData
         return scrapedData
     }
 

@@ -60,6 +60,13 @@
 		<string>PlayfairDisplay-Regular.ttf</string>
 		<string>PlayfairDisplay-SemiBold.ttf</string>
 		<string>PlayfairDisplay-SemiBoldItalic.ttf</string>
+		<string>Mada-Black.ttf</string>
+		<string>Mada-Bold.ttf</string>
+		<string>Mada-ExtraLight.ttf</string>
+		<string>Mada-Light.ttf</string>
+		<string>Mada-Medium.ttf</string>
+		<string>Mada-Regular.ttf</string>
+		<string>Mada-SemiBold.ttf</string>
 	</array>
 </dict>
 </plist>

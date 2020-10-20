@@ -11,7 +11,7 @@ const generate = () => {
     const properties = fontFileNames()
         .map((name) => {
             const key = name.replace(/\s/g, '')
-            return `${key}: '${name}'`
+            return `'${key}': '${name}'`
         })
         .join(',\n  ')
     const string = `const fonts = {
