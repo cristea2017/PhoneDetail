@@ -30,8 +30,9 @@ export default class HomeScreen extends Component {
 
         this.data = []
         this.parse = new GsmParser({ url: baseUrl })
-        this.devName = baseUrl.split('.com/')[1].split('-')[0].replaceAll('_', " ").toUpperCase()
+        this.devName = ""
         this.allSpecification = [""]
+        this.getRelated(baseUrl)
     }
     async componentDidMount() {
         this.data = await this.parse.parse()
@@ -42,7 +43,7 @@ export default class HomeScreen extends Component {
     getRelated = async (url) => {
         console.log(url);
         this.parse.baseUrl = url
-        this.devName = url.split('.com/')[1].split('-')[0].replaceAll('_', " ").toUpperCase()
+        this.devName = url.split('.com/')[1].split('-')[0].replace(/_/g, ' ').toUpperCase()
         this.data = await this.parse.parse()
         this.separateInfo()
         this.refs._scrollView.scrollTo({ x: 0, y: 0, animated: true });
@@ -166,7 +167,7 @@ export default class HomeScreen extends Component {
                                     fontFamily: fonts['Mada-Medium'],
                                     fontSize: 16, textAlign: 'center'
                                 }}
-                            >{e[0].replace(e[0].split('-')[1].split('PHP')[0], '').replace('-', '').replaceAll('_', " ").toUpperCase()}</Text>
+                            >{e[0].replace(e[0].split('-')[1].split('PHP')[0], '').replace('-', '').replace(/_/g, ' ').toUpperCase()}</Text>
                         </TouchableOpacity>)
                     })}
 
