@@ -8,6 +8,8 @@ import {
     StatusBar,
     TextInput,
     Platform,
+    TouchableOpacity,
+    Image,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
@@ -23,7 +25,7 @@ export default class HomeScreen extends Component {
         super(props);
         this.state = {
             autocomplete: [],
-
+            related: ['a', 'b']
         };
 
         this.data = []
@@ -33,44 +35,44 @@ export default class HomeScreen extends Component {
     }
     async componentDidMount() {
         this.data = await this.parse.parse()
-        console.log('>>>', this.data);
+        // console.log('>>>', this.data);
         this.separateInfo()
     }
 
+    getRelated = async (url) => {
+        console.log(url);
+        this.parse.baseUrl = url
+        this.devName = url.split('.com/')[1].split('-')[0].replaceAll('_', " ").toUpperCase()
+        this.data = await this.parse.parse()
+        this.separateInfo()
+        this.refs._scrollView.scrollTo({ x: 0, y: 0, animated: true });
+    }
 
     separateInfo() {
         this.data.map(e => {
             let vals = e.vals
             switch (e.name) {
                 case "Platform":
-                    // this.addElem(vals[1])
                     this.allSpecification[0] = vals[1]
                     this.allSpecification[4] = vals[3]
                     break;
                 case "Network":
-                    // this.addElem(vals[1])
                     break;
                 case "Body":
-                    // this.addElem(vals[1])
                     break;
                 case "Display":
-                    // this.addElem(vals[1])
                     this.allSpecification[5] = vals[3]
                     break;
                 case "Memory":
-                    // this.addElem(vals[1])
                     this.allSpecification[1] = vals[3]
                     break;
                 case "Main Camera":
-                    // this.addElem(vals[1])
                     this.allSpecification[2] = vals[1]
                     break;
                 case "Battery":
-                    // this.addElem(vals[1])
                     this.allSpecification[3] = vals[1]
                     break;
                 case "Battery":
-                    // this.addElem(vals[1])
                     break;
                 default:
                     break;
@@ -78,10 +80,6 @@ export default class HomeScreen extends Component {
 
         })
         this.setState({})
-    }
-
-    addElem(e) {
-        this.allSpecification.push(e)
     }
 
     render() {
@@ -120,7 +118,9 @@ export default class HomeScreen extends Component {
                     </View>
 
                     <ScrollView
+                        ref='_scrollView'
                         contentInsetAdjustmentBehavior="automatic"
+                        showsVerticalScrollIndicator={false}
                     >
                         {data.map(e => {
                             return (
@@ -131,10 +131,48 @@ export default class HomeScreen extends Component {
                                 />
                             )
                         })}
+                        {this.renderRelated()}
+                        <View style={{ height: 30 }} />
                     </ScrollView>
+
                 </View>
             </LinearGradient>
         );
+    }
+    renderRelated() {
+        return (
+            <View style={{ width: '100%', height: 250, marginTop: 10 }}>
+                <Text style={{
+                    color: 'white',
+                    fontFamily: fonts['Mada-Black'],
+                    fontSize: 24, marginVertical: 10
+                }}>Related :</Text>
+                <ScrollView
+                    horizontal>
+                    {this.parse.related.map(e => {
+                        console.log(e);
+                        return (<TouchableOpacity
+                            key={e[0]}
+                            onPress={() => {
+                                this.getRelated('https://www.gsmarena.com/' + e[0])
+                            }}
+                            style={{ width: 200, height: 200, backgroundColor: 'white', margin: 4, borderRadius: 5, alignItems: 'center', justifyContent: 'center' }}>
+                            <Image source={{ uri: e[1] }}
+                                style={{ width: '50%', height: '50%', resizeMode: 'contain' }} />
+                            <View style={{ flex: 0.25 }} />
+                            <Text
+                                style={{
+                                    color: '#4F5E70',
+                                    fontFamily: fonts['Mada-Medium'],
+                                    fontSize: 16, textAlign: 'center'
+                                }}
+                            >{e[0].replace(e[0].split('-')[1].split('PHP')[0], '').replace('-', '').replaceAll('_', " ").toUpperCase()}</Text>
+                        </TouchableOpacity>)
+                    })}
+
+                </ScrollView>
+            </View>
+        )
     }
 }
 

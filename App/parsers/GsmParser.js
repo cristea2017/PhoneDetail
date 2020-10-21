@@ -10,6 +10,7 @@ export default class GsmParser extends Component {
     constructor(props) {
         super()
         this.baseUrl = props.url
+        this.related = []
     }
 
     async autocomplete(q) {
@@ -44,7 +45,7 @@ export default class GsmParser extends Component {
         let i = 0
         $("#specs-list > table > tbody > tr").each((index, element) => {
             const ths = $(element).find("th");
-            console.log('th >>>', ths.text());
+            // console.log('th >>>', ths.text());
 
             if (ths.text() != '') {
                 tableHeaders.push(ths.text())
@@ -62,6 +63,21 @@ export default class GsmParser extends Component {
                 });
             }
         });
+
+
+        let a = []
+        $('#related-container > div').find($('.swiper-slide')).each((i, e) => {
+            if ($(e).find("a").attr('href') != undefined) {
+                a = []
+                // console.log($(e).find("a").attr('href'));
+                // console.log($(e).find("img").attr('src'));
+                a.push($(e).find("a").attr('href'))
+                a.push($(e).find("img").attr('src'))
+                this.related = [...this.related, a]
+                // console.log(this.related);
+            }
+        })
+
         return scrapedData
     }
 
@@ -71,6 +87,8 @@ export default class GsmParser extends Component {
         let systemVersion = DeviceInfo.getSystemVersion()
         let deviceId = await DeviceInfo.getDeviceName()
 
-        console.log(`${brand} ${os} ${systemVersion} ${deviceId}`);
+        consol
+
+        e.log(`${brand} ${os} ${systemVersion} ${deviceId}`);
     }
 }
